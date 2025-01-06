@@ -321,9 +321,6 @@
                         </div>
                     </div>
 
-                    <!-- Children List -->
-
-
                     <div class="h-full flex flex-col" x-show="expanded" x-cloak x-transition>
     <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -347,40 +344,40 @@
             </div>
         </template>
 
-        <!-- Children list -->
-        <template x-for="(child, index) in children" :key="index">
-            <div class="border rounded-lg p-6 bg-gray-50 transition-all duration-300 hover:shadow-lg">
-                <div class="flex justify-between items-center">
-                    <h3 class="font-semibold flex gap-2 text-lg text-red-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                        <span x-text="child.name"></span>
-                    </h3>
-                    <button @click="removeChild(index)" class="text-red-600 hover:text-red-800">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                    </button>
-                </div>
+                        <!-- Children list -->
+                        <template x-for="(child, index) in children" :key="index">
+                            <div class="border rounded-lg p-6 bg-gray-50 transition-all duration-300 hover:shadow-lg">
+                                <div class="flex justify-between items-center">
+                                    <h3 class="font-semibold flex gap-2 text-lg text-red-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                        </svg>
+                                        <span x-text="child.name"></span>
+                                    </h3>
+                                    <button @click="removeChild(index)" class="text-red-600 hover:text-red-800">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </button>
+                                </div>
 
-                <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="bg-white p-3 rounded-lg shadow-sm">
-                        <div class="text-sm text-gray-600">Annual Cost</div>
-                        <div class="text-lg font-semibold text-red-600" x-text="formatCurrency(child.annualCost)"></div>
+                                <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+                                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                                        <div class="text-sm text-gray-600">Annual Cost</div>
+                                        <div class="text-lg font-semibold text-red-600" x-text="formatCurrency(child.annualCost)"></div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                                        <div class="text-sm text-gray-600">Duration</div>
+                                        <div class="text-lg font-semibold text-red-600" x-text="child.duration + ' Years'"></div>
+                                    </div>
+                                    <div class="bg-white p-3 rounded-lg shadow-sm">
+                                        <div class="text-sm text-gray-600">Years Before Start</div>
+                                        <div class="text-lg font-semibold text-red-600" x-text="child.yearsBeforeStart + ' Years'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
                     </div>
-                    <div class="bg-white p-3 rounded-lg shadow-sm">
-                        <div class="text-sm text-gray-600">Duration</div>
-                        <div class="text-lg font-semibold text-red-600" x-text="child.duration + ' Years'"></div>
-                    </div>
-                    <div class="bg-white p-3 rounded-lg shadow-sm">
-                        <div class="text-sm text-gray-600">Years Before Start</div>
-                        <div class="text-lg font-semibold text-red-600" x-text="child.yearsBeforeStart + ' Years'"></div>
-                    </div>
-                </div>
-            </div>
-        </template>
-    </div>
                     </div>
 
                     <div class="text-center text-xs text-red-600 mt-4">
